@@ -39,6 +39,7 @@ image		{yylval = "IMAGE"; return IMAGE;}
 "{"		{yylval = "LB"; return LB;}
 "}"		{yylval = "RB"; return RB;}
 ";"		{yylval = "SEMICOLON"; return SEMICOLON;}
+.		printf("Unexpected lexical structure!: %s\n", yytext);
 
 %%
 main(){
