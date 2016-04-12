@@ -1,0 +1,10 @@
+#h1{
+	color: red;
+	text-align: center;
+	font: courier;
+}
+
+#myParagraph{
+	color: blue;
+	font-weight: bold;
+}
