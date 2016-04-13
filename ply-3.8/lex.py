@@ -1,32 +1,36 @@
 import ply.lex as lex
 
-#list of token names.
+#List of token names
 tokens = ('EQ', 'LP', 'RP', 'LB', 'RB', 'SEMICOLON', 'TITLE', 'BODY', 
           'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'STYLE', 'COLOR', 'ALIGNMENT',
           'FONT', 'PARAGRAPH', 'BOLD', 'ITALIC', 'UNDERLINE', 'LINK', 'IMAGE',
-          'ID', 'VALUE', 'COMMENT')
+          'ID', 'STRINGVALUE', 'CONSTANTVALUE', 'NUMERICVALUE','COMMENT', 'LINKATTR', 'IMAGEATTR')
           
 
-#Regular expression rules for simple tokens
+#Regular Expressions for some tokens
 t_EQ = r'\='
 t_LP = r'\('
 t_RP = r'\)'
 t_LB = r'\{'
 t_RB = r'\}'
 t_SEMICOLON = r'\;'
-t_ID = r'[A-Za-z]([A-Za-z]|[0-9]+)*'
-t_VALUE = r'(["]([^,\n\t]+)["])|[A-Z]{2,}|[0-9]+'
+t_ID = r'[a-z]([A-Za-z]|[0-9]+)*'
+t_STRINGVALUE = r'(["]([^,\n\t]+)["])'
+t_CONSTANTVALUE = r'[A-Z]{2,}'
+t_NUMERICVALUE = r'[0-9]+'
 t_COMMENT = r'\/{2}(.)+(\n)|\/\*(.)+\\*\/'
 
+#============================================================
+#                                Definitions for the rest of the tokens
+#============================================================
+def t_TITLE(t):
+    r'TITLE'
+    t.value = 'TITLE'
+    return t
 
 def t_BODY(t):
     r'body'
     t.value = 'body'
-    return t
-
-def t_TITLE(t):
-    r'TITLE'
-    t.value = 'TITLE'
     return t
 
 def t_H1(t):
@@ -99,6 +103,15 @@ def t_UNDERLINE(t):
     t.value = 'isUnderline'
     return t
 
+def t_LINKATTR(t):
+    r'linkAttr'
+    t.value = 'linkAttr'
+    return t
+
+def t_IMAGEATTR(t):
+    r'imageAttr'
+    t.value = 'imageAttr'
+    return t
 def t_LINK(t):
     r'link'
     t.value = 'link'
@@ -114,24 +127,31 @@ def t_newline(t):
     t.lexer.lineno += len(t.value)
 
 
+#====================================================
+
+#Ignored tokens/characters
 t_ignore  = ' \t,'
 
 
+#Defines error behavior
 def t_error(t):
     print("Illegal character '%s'" % t.value[0])
+
     t.lexer.skip(1)
 
-
+#Initialize Lex
 lexer = lex.lex()
 
+#Try to open the "input.in" file
 try:
     input = open('input.in', 'r')
 except FileNotFoundException:
     print 'File "input.in" not found!'
     
+#Open the output file
 output = open('output.out', 'w')
 
-
+#Pass the contents of the input file to the scanner
 lexer.input(input.read())
 
 # Tokenize

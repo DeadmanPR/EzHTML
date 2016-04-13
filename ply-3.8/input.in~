@@ -18,18 +18,8 @@ body{
 	};
 
 	//HTML Links (Hyperlinks)
-	link myLink;
-	linkAttr(myLink){
-		destination = "http://www.google.com";
-		text = "This is Google!"
-	};
+	link myLink = ("http://www.google.com", "This is Google!");
 
 	//Images
-	image testImage;
-	imageAttr(testImage){
-		source = "http://www.uprm.edu/wdt/resources/portico1.gif";
-		width = 100;
-		height = 100;
-		destination = "http://www.uprm.edu";
-	};
+	image testImage = ("http://www.uprm.edu/wdt/resources/portico1.gif",100, 100, "http://www.uprm.edu"); //Source file name (or URL), width, height, link (if any)
 };
