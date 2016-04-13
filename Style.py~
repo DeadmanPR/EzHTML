@@ -6,6 +6,7 @@ class Style():
       self.color = color
       self.bgcolor = bgcolor
       
+  
   def getColor(self):
       return self.color
   

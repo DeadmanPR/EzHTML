@@ -1,0 +1,142 @@
+import ply.lex as lex
+
+#list of token names.
+tokens = ('EQ', 'LP', 'RP', 'LB', 'RB', 'SEMICOLON', 'TITLE', 'BODY', 
+          'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'STYLE', 'COLOR', 'ALIGNMENT',
+          'FONT', 'PARAGRAPH', 'BOLD', 'ITALIC', 'UNDERLINE', 'LINK', 'IMAGE',
+          'ID', 'VALUE', 'COMMENT')
+          
+
+#Regular expression rules for simple tokens
+t_EQ = r'\='
+t_LP = r'\('
+t_RP = r'\)'
+t_LB = r'\{'
+t_RB = r'\}'
+t_SEMICOLON = r'\;'
+t_ID = r'[A-Za-z]([A-Za-z]|[0-9]+)*'
+t_VALUE = r'(["]([^,\n\t]+)["])|[A-Z]{2,}|[0-9]+'
+t_COMMENT = r'\/{2}(.)+(\n)|\/\*(.)+\\*\/'
+
+
+def t_BODY(t):
+    r'body'
+    t.value = 'body'
+    return t
+
+def t_TITLE(t):
+    r'TITLE'
+    t.value = 'TITLE'
+    return t
+
+def t_H1(t):
+    r'heading1'
+    t.value = 'heading1'
+    return t
+
+def t_H2(t):
+    r'heading2'
+    t.value = 'heading2'
+    return t
+
+def t_H3(t):
+    r'heading3'
+    t.value = 'heading3'
+    return t
+
+def t_H4(t):
+    r'heading4'
+    t.value = 'heading4'
+    return t
+
+def t_H5(t):
+    r'heading5'
+    t.value = 'heading5'
+    return t
+
+def t_H6(t):
+    r'heading6'
+    t.value = 'heading6'
+    return t
+
+def t_STYLE(t):
+    r'style'
+    t.value = 'style'
+    return t
+
+def t_COLOR(t):
+    r'color'
+    t.value = 'color'
+    return t
+
+def t_ALIGNMENT(t):
+    r'alignment'
+    t.value = 'alignment'
+    return t
+
+def t_FONT(t):
+    r'font'
+    t.value = 'font'
+    return t
+
+def t_PARAGRAPH(t):
+    r'paragraph'
+    t.value = 'paragraph'
+    return t
+
+def t_BOLD(t):
+    r'isBold'
+    t.value = 'isBold'
+    return t
+
+def t_ITALIC(t):
+    r'isItalic'
+    t.value = 'isItalic'
+    return t
+
+def t_UNDERLINE(t):
+    r'isUnderline'
+    t.value = 'isUnderline'
+    return t
+
+def t_LINK(t):
+    r'link'
+    t.value = 'link'
+    return t
+
+def t_IMAGE(t):
+    r'image'
+    t.value = 'image'
+    return t
+
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
+
+
+t_ignore  = ' \t,'
+
+
+def t_error(t):
+    print("Illegal character '%s'" % t.value[0])
+    t.lexer.skip(1)
+
+
+lexer = lex.lex()
+
+try:
+    input = open('input.in', 'r')
+except FileNotFoundException:
+    print 'File "input.in" not found!'
+    
+output = open('output.out', 'w')
+
+
+lexer.input(input.read())
+
+# Tokenize
+while True:
+    tok = lexer.token()
+    if not tok: 
+        break      # No more input
+    output.write(str(tok)+'\n')
