@@ -4,7 +4,9 @@ import ply.lex as lex
 tokens = ('EQ', 'LP', 'RP', 'LB', 'RB', 'SEMICOLON', 'TITLE', 'BODY', 
           'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'STYLE', 'COLOR', 'ALIGNMENT',
           'FONT', 'PARAGRAPH', 'BOLD', 'ITALIC', 'UNDERLINE', 'LINK', 'IMAGE',
-          'ID', 'STRINGVALUE', 'CONSTANTVALUE', 'NUMERICVALUE','COMMENT', 'LINKATTR', 'IMAGEATTR')
+          'ID', 'STRINGVALUE', 'CONSTANTVALUE', 'NUMERICVALUE',
+          'COMMENT', 'LINKATTR', 'IMAGEATTR', 'DESTINATION', 'WIDTH', 'HEIGHT',
+          'SOURCE', 'TEXT')
           
 
 #Regular Expressions for some tokens
@@ -120,6 +122,31 @@ def t_LINK(t):
 def t_IMAGE(t):
     r'image'
     t.value = 'image'
+    return t
+
+def t_DESTINATION(t):
+    r'destination'
+    t.value = 'destination'
+    return t
+
+def t_WIDTH(t):
+    r'width'
+    t.value = 'width'
+    return t
+
+def t_TEXT(t):
+    r'text'
+    t.value ='text'
+    return t
+
+def t_SOURCE(t):
+    r'source'
+    t.value = 'source'
+    return t
+
+def t_HEIGHT(t):
+    r'height'
+    t.value = 'height'
     return t
 
 def t_newline(t):

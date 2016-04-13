@@ -14,7 +14,7 @@ body{
 	paragraph myParagraph = "This is a paragraph!";
 	style(myParagraph){
 		color = BLUE;
-		isBold = 1; //Makes text bold
+		isBold = TRUE; //Makes text bold
 	};
 
 	//HTML Links (Hyperlinks)
