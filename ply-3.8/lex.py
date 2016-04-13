@@ -139,4 +139,4 @@ while True:
     tok = lexer.token()
     if not tok: 
         break      # No more input
-    output.write(str(tok)+'\n')
+    output.write(tok.type + '(' + tok.value + ')\n')
