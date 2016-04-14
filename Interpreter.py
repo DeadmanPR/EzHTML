@@ -92,16 +92,16 @@ def finalize():
     f.close();
     
     for e in elements:
-        styles.write('#' + e.getID() + '{\n\t')
-        styles.write('color: ' + e.getColor() + ';\n')
-        styles.write('text-align: ' + e.getAlignment() + ';\n')
-        styles.write('font: ' + e.getFont() + ';\n') #TODO: Fix
+        styles.write('#' + e.getID() + '{\n')
+        styles.write('\tcolor: ' + e.getColor() + ';\n')
+        styles.write('\ttext-align: ' + e.getAlignment() + ';\n')
+        styles.write('\tfont: ' + e.getFont() + ';\n') #TODO: Fix
         if e.getBold() is True:
-            styles.write('font-weight: bold;\n')
+            styles.write('\tfont-weight: bold;\n')
         if e.getItalic() is True:
-            styles.write('font-style: italic;\n')
+            styles.write('\tfont-style: italic;\n')
         if e.getUnderline() is True:
-            styles.write('text-decoration: underline;\n')
+            styles.write('\ttext-decoration: underline;\n')
         styles.write('}\n\n')
         
     styles.close()
