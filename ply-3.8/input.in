@@ -1,8 +1,8 @@
 TITLE = "MY Website";
-BACKGROUND_COLOR = CYAN;
 
 body{
 	//Headers
+	BACKGROUND_COLOR = CYAN;
 	heading1 h1 = "This is a test";
 	style(h1){
 		color = RED;
@@ -34,3 +34,4 @@ body{
 		destination = "http://www.uprm.edu";
 	};
 };
+

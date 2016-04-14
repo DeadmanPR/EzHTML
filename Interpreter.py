@@ -4,15 +4,12 @@ from Element import *
 title = '';
 elements = [];
 
-def initialize(webpageTitle, backgroundColor):
+def initialize(webpageTitle):
     title = webpageTitle
     global f, styles, bgColor
     f= open(title + '.html', 'w')
     styles = open(title + '.css', 'w')
-    if backgroundColor is not None:
-        bgColor = backgroundColor
-    else:
-        bgColor = ''
+    bgColor = ''
     
     f.write('<!DOCTYPE html>\n')
     f.write('<head>\n')
@@ -29,7 +26,12 @@ def searchElement(identifier):
             return e
 
     return None
-        
+  
+def setBGColor(backgroundColor):
+    if backgroundColor is not None:
+        styles.write('body{\n\tbackground-color: ' + backgroundColor + ';\n}\n\n')
+    return
+          
 def writeHeader(identifier, number, text):
     if number < 1 or number > 6:
         raise ValueError('Invalid header number: ' + str(number) + '\n')
@@ -96,8 +98,6 @@ def finalize():
     f.close();
     
     for e in elements:
-        if bgColor is not '':
-            styles.write('body{\n\tbackground-color: ' + bgColor + ';\n}\n\n')
         styles.write('#' + e.getID() + '{\n')
         if e.getColor() is not '':
             styles.write('\tcolor: ' + e.getColor() + ';\n')

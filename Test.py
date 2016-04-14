@@ -1,6 +1,7 @@
 from Interpreter import *
 
-initialize('Test Webpage', None)
+initialize('Test Webpage')
+setBGColor('BLUE')
 writeHeader('h1', 1, 'This is a test, stand by!')
 setColor('h1', 'RED')
 setUnderline('h1', True)
