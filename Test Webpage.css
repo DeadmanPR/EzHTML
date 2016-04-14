@@ -1,16 +1,28 @@
 #h1{
 	color: RED;
-text-align: CENTER;
-font: ;
-text-decoration: underline;
+	text-align: CENTER;
+	font: ;
+	text-decoration: underline;
 }
 
 #p1{
 	color: ;
-text-align: RIGHT;
-font: ;
-font-weight: bold;
-font-style: italic;
-text-decoration: underline;
+	text-align: RIGHT;
+	font: ;
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline;
+}
+
+#image1{
+	color: ;
+	text-align: ;
+	font: ;
+}
+
+#image1{
+	color: ;
+	text-align: ;
+	font: ;
 }
 

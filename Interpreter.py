@@ -51,7 +51,7 @@ def writeImage(identifier, source, link):
     if link is None:
         f.write('\t<img id="' + identifier + '" src="' + source + '"/>\n')
     else:
-        writeHyperlink(None, link, '<img id="' + identifier + '" src="' + source + '"/>')
+        writeHyperlink(identifier, link, '<img id="' + identifier + '" src="' + source + '"/>')
     elements.append(Element(identifier, 'image', None))
     return
 
