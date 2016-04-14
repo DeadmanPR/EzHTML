@@ -6,7 +6,7 @@ tokens = ('EQ', 'LP', 'RP', 'LB', 'RB', 'SEMICOLON', 'TITLE', 'BODY',
           'FONT', 'PARAGRAPH', 'BOLD', 'ITALIC', 'UNDERLINE', 'LINK', 'IMAGE',
           'ID', 'STRINGVALUE', 'CONSTANTVALUE', 'NUMERICVALUE',
           'COMMENT', 'LINKATTR', 'IMAGEATTR', 'DESTINATION', 'WIDTH', 'HEIGHT',
-          'SOURCE', 'TEXT')
+          'SOURCE', 'TEXT', 'BACKGROUND_COLOR')
           
 
 #Regular Expressions for some tokens
@@ -20,7 +20,7 @@ t_ID = r'[a-z]([A-Za-z]|[0-9]+)*'
 t_STRINGVALUE = r'(["]([^,\n\t]+)["])'
 t_CONSTANTVALUE = r'[A-Z]{2,}'
 t_NUMERICVALUE = r'[0-9]+'
-t_COMMENT = r'\/{2}(.)+(\n)|\/\*(.)+\\*\/'
+t_COMMENT = r'\/{2}(.)+(\n)'
 
 #============================================================
 #                                Definitions for the rest of the tokens
@@ -28,6 +28,11 @@ t_COMMENT = r'\/{2}(.)+(\n)|\/\*(.)+\\*\/'
 def t_TITLE(t):
     r'TITLE'
     t.value = 'TITLE'
+    return t
+
+def t_BACKGROUND_COLOR(t):
+    r'BACKGROUND_COLOR'
+    t.value = 'BACKGROUND_COLOR'
     return t
 
 def t_BODY(t):

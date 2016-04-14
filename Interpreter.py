@@ -4,11 +4,15 @@ from Element import *
 title = '';
 elements = [];
 
-def initialize(webpageTitle):
+def initialize(webpageTitle, backgroundColor):
     title = webpageTitle
-    global f, styles;
+    global f, styles, bgColor
     f= open(title + '.html', 'w')
     styles = open(title + '.css', 'w')
+    if backgroundColor is not None:
+        bgColor = backgroundColor
+    else:
+        bgColor = ''
     
     f.write('<!DOCTYPE html>\n')
     f.write('<head>\n')
@@ -50,9 +54,9 @@ def writeHyperlink(identifier, link, text):
 def writeImage(identifier, source, link):
     if link is None:
         f.write('\t<img id="' + identifier + '" src="' + source + '"/>\n')
+        elements.append(Element(identifier, 'image', None))
     else:
         writeHyperlink(identifier, link, '<img id="' + identifier + '" src="' + source + '"/>')
-    elements.append(Element(identifier, 'image', None))
     return
 
 def  setColor(identifier, color):
@@ -92,10 +96,15 @@ def finalize():
     f.close();
     
     for e in elements:
+        if bgColor is not '':
+            styles.write('body{\n\tbackground-color: ' + bgColor + ';\n}\n\n')
         styles.write('#' + e.getID() + '{\n')
-        styles.write('\tcolor: ' + e.getColor() + ';\n')
-        styles.write('\ttext-align: ' + e.getAlignment() + ';\n')
-        styles.write('\tfont: ' + e.getFont() + ';\n') #TODO: Fix
+        if e.getColor() is not '':
+            styles.write('\tcolor: ' + e.getColor() + ';\n')
+        if e.getAlignment() is not '':
+            styles.write('\ttext-align: ' + e.getAlignment() + ';\n')
+        if e.getFont() is not '':
+            styles.write('\tfont: ' + e.getFont() + ';\n') #TODO: Fix
         if e.getBold() is True:
             styles.write('\tfont-weight: bold;\n')
         if e.getItalic() is True:

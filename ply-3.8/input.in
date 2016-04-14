@@ -1,4 +1,5 @@
 TITLE = "MY Website";
+BACKGROUND_COLOR = CYAN;
 
 body{
 	//Headers
