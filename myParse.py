@@ -4,6 +4,9 @@ import ply.yacc as yacc
 import myLex
 tokens = myLex.tokens
 
+#=======================================================================
+#                                                                    Grammar Rules
+#=======================================================================
 def p_start(p):
     '''start : title'''
     p[0] = p[1]
@@ -92,28 +95,28 @@ def p_image_definition_error(p):
         raise Exception
     return 
 
- #===================================================
- #                                    INTERMEDIATE CODE 
- #===================================================
+ #=============================================================================================
+ #                                                                                                   INTERMEDIATE CODE 
+ #=============================================================================================
 from Element import *
 import os
+import webbrowser
 
-title = '';
 elements = [];
 
 f = open('MyWebpage.html', 'w')
 styles = open ('MyWebpage.css', 'w')
 
-def initialize(webpageTitle):
-    title = webpageTitle
-    
-    os.rename('MyWebpage.html', title + '.html')
-    os.rename('MyWebpage.css', title + '.css')
+def initialize(webpageTitle):    
+    global title
+    title  = webpageTitle
+    os.rename('MyWebpage.html', webpageTitle + '.html')
+    os.rename('MyWebpage.css', webpageTitle + '.css')
 
     f.write('<!DOCTYPE html>\n')
     f.write('<head>\n')
-    f.write('\t<title>' + title + '</title>\n')
-    f.write('\t<link rel="stylesheet" href="' + title + '.css">\n')
+    f.write('\t<title>' + webpageTitle + '</title>\n')
+    f.write('\t<link rel="stylesheet" href="' + webpageTitle + '.css">\n')
     f.write('</head>\n')
 
     f.write('\n<body>\n')
@@ -204,8 +207,6 @@ def unquoteString(stringValue):
 def finalize():
     f.write('</body>\n')
     f.write('</html>')
-
-    f.close();
     
     for e in elements:
         styles.write('#' + e.getID() + '{\n')
@@ -230,6 +231,11 @@ def finalize():
         styles.write('}\n\n')
         
     styles.close()
+
+    f.close()
+    
+    #Opens the website in the web browser
+    webbrowser.open(title + '.html')
     return
 
 #=================================================
