@@ -2,7 +2,7 @@
 
 EzHTML is a programming language that helps people create web pages (or websites). It offers a syntax similar to C/C++, so that people that know these languages can easily grasp EzHTML's syntax. 
 
-Note: This project was developed using Python Lex-Yacc (PLY for short). Therefore, you must have Python installed on your computer.
+Note: This project was developed using Python Lex-Yacc (PLY for short). Therefore, you must have Python 2.7 installed on your computer.
 
 
 # How to execute the test program provided:
