@@ -1,3 +1,4 @@
+__author__ = "Jose Antonio Rodriguez Rivera"
 class Element():
 	__id=""
 	__type=""
@@ -5,6 +6,7 @@ class Element():
 	__color=""
 	__alignment=""
 	__font=""
+	__fontSize = 0
 	__isBold=""
 	__isItalic=""
 	__isUnderline=""
@@ -30,6 +32,10 @@ class Element():
 	def setFont(self, font):
 		self.__font = font;
 		return
+	
+	def setFontSize(self, fontSize):
+		self.__fontSize = fontSize;
+		return 
 	
 	def setBold(self, isBold):
 		self.__isBold = isBold;
@@ -60,6 +66,9 @@ class Element():
 	
 	def getFont(self):
 		return self.__font
+	
+	def getFontSize(self):
+		return self.__fontSize
 	
 	def getBold(self):
 		return self.__isBold

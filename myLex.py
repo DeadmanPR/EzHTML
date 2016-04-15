@@ -1,3 +1,4 @@
+__author__ = "Jose Antonio Rodriguez Rivera"
 import ply.lex as lex
 
 #List of token names
@@ -6,7 +7,7 @@ tokens = ('EQ', 'LP', 'RP', 'LB', 'RB', 'SEMICOLON', 'TITLE', 'BODY',
           'FONT', 'PARAGRAPH', 'BOLD', 'ITALIC', 'UNDERLINE', 'LINK', 'IMAGE',
           'ID', 'STRINGVALUE', 'CONSTANTVALUE', 'NUMERICVALUE',
           'COMMENT', 'LINKATTR', 'IMAGEATTR', 'DESTINATION', 'WIDTH', 'HEIGHT',
-          'SOURCE', 'TEXT', 'BACKGROUND_COLOR')
+          'SOURCE', 'TEXT', 'BACKGROUND_COLOR', 'FONTSIZE')
           
 
 #Regular Expressions for some tokens
@@ -17,10 +18,9 @@ t_LB = r'\{'
 t_RB = r'\}'
 t_SEMICOLON = r'\;'
 t_ID = r'[a-z]([A-Za-z]|[0-9]+)*'
-t_STRINGVALUE = r'(["]([^,\n\t]+)["])'
+t_STRINGVALUE = r'(["]((.)+)["])'
 t_CONSTANTVALUE = r'[A-Z]{2,}'
 t_NUMERICVALUE = r'[0-9]+'
-t_COMMENT = r'\/{2}(.)+(\n)'
 
 #============================================================
 #                                Definitions for the rest of the tokens
@@ -38,6 +38,16 @@ def t_BACKGROUND_COLOR(t):
 def t_BODY(t):
     r'body'
     t.value = 'body'
+    return t
+
+def t_COMMENT(t):
+     r'\/{2}(.)+(\n)'
+     t.lexer.skip(1)
+     return
+ 
+def t_FONTSIZE(t):
+    r'font-size'
+    t.value = 'font-size'
     return t
 
 def t_H1(t):
@@ -173,22 +183,3 @@ def t_error(t):
 
 #Initialize Lex
 lexer = lex.lex()
-
-#Try to open the "input.in" file
-try:
-    input = open('input.in', 'r')
-except FileNotFoundException:
-    print 'File "input.in" not found!'
-    
-#Open the output file
-output = open('output.out', 'w')
-
-#Pass the contents of the input file to the scanner
-lexer.input(input.read())
-
-# Tokenize
-while True:
-    tok = lexer.token()
-    if not tok: 
-        break      # No more input
-    output.write(tok.type + '(' + tok.value + ')\n')

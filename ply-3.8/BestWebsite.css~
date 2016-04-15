@@ -1,0 +1,34 @@
+body{
+	background-color: CYAN;
+}
+
+#h1{
+	color: RED;
+	display: block;
+	text-align: CENTER;
+	font: COURIER;
+	font-style: italic;
+}
+
+#h2{
+}
+
+#myParagraph{
+	color: WHITE;
+	display: block;
+	text-align: CENTER;
+	font: COURIER;
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline;
+}
+
+#myLink{
+	display: block;
+	text-align: RIGHT;
+}
+
+#myImage{
+	align: middle;
+}
+

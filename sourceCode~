@@ -1,0 +1,40 @@
+TITLE = "My Website";
+
+body{
+	BACKGROUND_COLOR = CYAN;
+	heading1 h1 = "This is a header!";
+	style(h1){
+		color = WHITE;
+		alignment = CENTER;
+		font = COURIER;
+		isBold = FALSE;
+		isItalic = TRUE;
+		isUnderline = TRUE;
+	};
+
+	paragraph myPara = "...";
+
+	style(myPara){
+		color = WHITE;
+		alignment = LEFT;
+		font = COURIER;
+		isBold = TRUE;
+		isItalic = TRUE;
+		isUnderline = FALSE;
+	};
+
+	link myLink;
+	linkAttr(myLink){
+		destination = "http://www.google.com";
+		text = "Shortcut to Google!";
+		alignment = CENTER;
+	};
+
+	image myImage;
+	imageAttr(myImage){
+		source = "http://xiostorage.com/wp-content/uploads/2015/10/test.png";
+		height = 200;
+		width = 200;
+		destination = "None";
+	};
+};
