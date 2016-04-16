@@ -18,4 +18,7 @@ Note: This project was developed using Python Lex-Yacc (PLY for short). Therefor
     6- If everything worked correctly, the website should open up in your
     default internet browser.
 
+# Grammar Rules
+![Grammar Rules](http://github.com/deadmanpr/EzHTML/Grammar.png "Grammar Rules")
+
 # More notes on syntax will be added later
