@@ -17,3 +17,5 @@ Note: This project was developed using Python Lex-Yacc (PLY for short). Therefor
     key. You can type any file name, as long as it has valid EzHTML syntax.
     6- If everything worked correctly, the website should open up in your
     default internet browser.
+
+# More notes on syntax will be added later
