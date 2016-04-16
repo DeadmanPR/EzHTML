@@ -19,6 +19,6 @@ Note: This project was developed using Python Lex-Yacc (PLY for short). Therefor
     default internet browser.
 
 # Grammar Rules
-![Grammar Rules](http://github.com/deadmanpr/EzHTML/blob/master/Grammar.png?raw=tru)
+![Grammar Rules](http://github.com/deadmanpr/EzHTML/blob/master/Grammar.png)
 
 # More notes on syntax will be added later
