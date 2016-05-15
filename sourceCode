@@ -1,8 +1,9 @@
 TITLE = "My Website";
 
 body{
-	BACKGROUND_COLOR = BLACK;
+	BACKGROUND_COLOR = SPRINGGREEN;
 	heading1 h1 = "This is a header!";
+
 	style(h1){
 		color = WHITE;
 		alignment = CENTER;

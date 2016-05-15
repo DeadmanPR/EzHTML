@@ -269,12 +269,15 @@ def finalize():
 #=================================================
 #Asks for the input source code file, also builds the parser.
 print '================EzHTML===============' 
+
+sourceCodeName = raw_input('Please enter the name of the source code file: ')
+
 try:
-    sourceCodeName = raw_input('Please enter the name of the source code file: ')
-except NameError:
+    sourceCode = open(sourceCodeName, 'r')
+except IOError:
     print 'The file name you entered does not exist!'
     exit()
-sourceCode = open(sourceCodeName, 'r')
+    
 testData = sourceCode.read()
     
 y = yacc.yacc()
