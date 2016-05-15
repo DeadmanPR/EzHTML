@@ -47,7 +47,7 @@ Note: This project was developed using Python Lex-Yacc (PLY for short). Therefor
     6- If everything worked correctly, the website should open up in your
     default internet browser.
 
-# Syntax
+# Reference Manual
 As previously mentioned, EzHTML's syntax is similar to C/C++. Every statement must be followed by a semicolon [ ; ]. Here's a brief description of the syntax.
 
 ### Title and Body Statements
