@@ -52,13 +52,13 @@ As previously mentioned, EzHTML's syntax is similar to C/C++. Every statement mu
 
 ### Title and Body Statements
 Every EzHTML program must have these two keywords: Title and Body. 
-#### Title
+##### Title
 In order to set a title for your webpage, you must follow the following syntax:
 ```C
 TITLE = "Webpage Title";
 ```
 Note that the title is between quotation marks [ " " ] since it is essentially a group of characters (similar to how Strings are written in C/C++).
-#### Body
+##### Body
 After the title has been set, your whole program resides in a _body_ block. Think of it as the ```main()``` function of every C/C++ program.
 ``` C
 body{
@@ -90,9 +90,9 @@ body{
     heading6 yep = "Heading1!";
 };
 ```
-A heading declaration must start with the type of heading (heading1 to heading6), followed by an identifier (a letter followed by letters or numbers) and assigning a text value using the equal sign.
+A heading declaration must start with the type of heading (_heading1_ to _heading6_), followed by an identifier (a letter followed by letters or numbers) and assigning a text value using the equal sign.
 
-#### Heading Style
+##### Heading Style
 You can set certain attributes of a heading. These are its color, alignment, font, font-size, and if it is bold, underlined or italic. 
 ```C
 body{
@@ -102,13 +102,81 @@ body{
 		alignment = CENTER;
 		font = COURIER;
 		font-size = 12;
-		isBold = FALSE;
+		isBold = FALSE;     //Possible values: TRUE or FALSE
 		isItalic = TRUE;
 		isUnderline = TRUE;
 	};
 }:
 ```
 Note: All attributes ***must*** be present in the heading style definition (in other words, omitting the color attribute will result in an error).
+
+### Paragraphs
+To add a paragraph to your webpage, it follows the following pattern:
+```C
+body{
+    paragraph firstPar = "This is the content of the paragraph";
+};
+```
+
+Paragraphs follow a syntax similar to the headings previously mentioned. To create a paragraph, the keyword _paragraph_ must be present. After the keyword, an identifier is used and assigned a text value using the equal sign.
+
+##### Paragraph Style
+Paragraphs also have attributes that can be modified. These are the same as the heading attributes, and is written in a similar fashion:
+```C
+body{
+    paragraph p1 = "Testing with a paragraph!";
+    style(p1){
+        color = BLUE;
+		alignment = CENTER;
+		font = COURIER;
+		font-size = 18;
+		isBold = TRUE;     //Possible values: TRUE or FALSE
+		isItalic = FALSE;
+		isUnderline = FALSE;
+	};
+}:
+```
+
+### Hyperlinks (Links)
+Links have a different syntax to the elements seen so far. This time, a `link` variable is declared, and its attributes are set directly following it.
+```C
+body{
+    link myLink;
+    linkAttr(myLink){
+        destination = "http://www.google.com";
+        text = "Go to Google!";
+        alignment = CENTER;
+        font-size = 144;
+    };
+};
+```
+
+Links have four attributes to be defined:
+- destination -> the webpage to open when the link is clicked
+- text -> the text to show as the link that can be clicked
+- aligment -> alignment of the link on the webpage
+- font-size -> the font size of the text
+
+### Images
+Images follow a similar pattern to how links are created. An `image` variable is declared, and its attributes definition immediately follows it.
+```C
+body{
+    image myImage;
+    imageAttr(myImage){
+		source = "http://xiostorage.com/wp-content/uploads/2015/10/test.png";
+		height = 200;
+		width = 200;
+		destination = "None";
+	};
+};
+```
+
+Images have four attributes to be set:
+- source -> the source of the image (can be local [ex. `"images/test.png"`] or a link
+- height -> the desired height of the image
+- width -> the desired width of the image
+- destination -> distinguishes if the image is a link as well [ex. `destination = "http://www.uprm.edu";`] or if the image is not a link [ex. `destination = "None";`]
+
 
 ### Comments
 Comments are ignored by the program itself, but helps increase the code readability. Any line that starts with two forward slashes [ // ] will be treated as a comment.
