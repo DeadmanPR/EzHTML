@@ -113,14 +113,14 @@ Note: All attributes ***must*** be present in the heading style definition (in o
 ### Comments
 Comments are ignored by the program itself, but helps increase the code readability. Any line that starts with two forward slashes [ // ] will be treated as a comment.
 
-1. Single Line Comments:
+Single Line Comments:
 ```C
 ...
 //This is a comment
 ...
 ```
 
-2. Multi-Line Comments:
+Multi-Line Comments:
 ``` C
 ...
 //This is
