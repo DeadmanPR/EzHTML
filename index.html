@@ -29,9 +29,62 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h1>
+<a id="brief-introduction" class="anchor" href="#brief-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Brief Introduction</h1>
+
+<p>Since the development of the internet, technology has become an important part of our lives. For that reason, web pages are used daily in order to facilitate and organize information, social interactions, online shopping, along many other activities. Therefore to create a web page, people must learn programming languages like HTML/CSS. Because of the need of people with HTML/CSS knowledge, we found the motivation for developing an intuitive language, called EzHTML, that can make it easy for those that may have difficulties learning HTML/CSS. Our objective is to develop a clearer and simpler language so that the user doesn't have to go through the tedious and/or exhausting process of opening and closing HTML tags (&lt;&gt; | &lt;/&gt;), increasing readability of the code and saving some coding time. </p>
+
+<h1>
 <a id="ezhtml" class="anchor" href="#ezhtml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>EzHTML</h1>
 
 <p>EzHTML is a programming language that helps people create web pages (or websites). It offers a syntax similar to C/C++, so that people that know these languages can easily grasp EzHTML's syntax. </p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<p>This language handles the following HTML/CSS functionality:</p>
+
+<ul>
+<li>Webpage Title</li>
+<li>Background Color</li>
+<li>Headings (h1 to h6)
+
+<ul>
+<li>Color</li>
+<li>Alignment</li>
+<li>Font</li>
+<li>Font Size</li>
+<li>Bold/Italic/Underline</li>
+</ul>
+</li>
+<li>
+<p>Paragraphs</p>
+
+<ul>
+<li>Color</li>
+<li>Alignment</li>
+<li>Font</li>
+<li>Font Size</li>
+<li>Bold/Italic/Underline</li>
+</ul>
+</li>
+<li>
+<p>Hyperlinks (Links)</p>
+
+<ul>
+<li>Text to be shown as the link</li>
+<li>Alignment</li>
+<li>Font Size</li>
+</ul>
+</li>
+<li>
+<p>Images</p>
+
+<ul>
+<li>Image width and height</li>
+<li>Image link destination (when</li>
+</ul>
+</li>
+</ul>
 
 <p>Note: This project was developed using Python Lex-Yacc (PLY for short). Therefore, you must have Python 2.7 installed on your computer.</p>
 
@@ -52,7 +105,179 @@ default internet browser.
 </code></pre>
 
 <h1>
-<a id="more-notes-on-syntax-will-be-added-later" class="anchor" href="#more-notes-on-syntax-will-be-added-later" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More notes on syntax will be added later</h1>
+<a id="reference-manual" class="anchor" href="#reference-manual" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reference Manual</h1>
+
+<p>As previously mentioned, EzHTML's syntax is similar to C/C++. Every statement must be followed by a semicolon [ ; ]. Here's a brief description of the syntax.</p>
+
+<h3>
+<a id="title-and-body-statements" class="anchor" href="#title-and-body-statements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Title and Body Statements</h3>
+
+<p>Every EzHTML program must have these two keywords: Title and Body. </p>
+
+<h5>
+<a id="title" class="anchor" href="#title" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Title</h5>
+
+<p>In order to set a title for your webpage, you must follow the following syntax:</p>
+
+<div class="highlight highlight-source-c"><pre>TITLE = <span class="pl-s"><span class="pl-pds">"</span>Webpage Title<span class="pl-pds">"</span></span>;</pre></div>
+
+<p>Note that the title is between quotation marks [ " " ] since it is essentially a group of characters (similar to how Strings are written in C/C++).</p>
+
+<h5>
+<a id="body" class="anchor" href="#body" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body</h5>
+
+<p>After the title has been set, your whole program resides in a <em>body</em> block. Think of it as the <code>main()</code> function of every C/C++ program.</p>
+
+<div class="highlight highlight-source-c"><pre>body{
+    <span class="pl-c">//Program goes here</span>
+};</pre></div>
+
+<p>Note that a semicolon [ ; ] follows the closing bracket [ } ]. As with every statement, this must be done.</p>
+
+<h3>
+<a id="background-color" class="anchor" href="#background-color" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Background Color</h3>
+
+<p>A background color can be set for the webpage.</p>
+
+<div class="highlight highlight-source-c"><pre>body{
+    BACKGROUND_COLOR = BLUE;
+};</pre></div>
+
+<p>Note that the value is written in capital letters (similar to how constants are used in C/C++) and with no quotation marks. </p>
+
+<p>A list of possible values can be found here: <a href="http://www.w3schools.com/colors/colors_names.asp">http://www.w3schools.com/colors/colors_names.asp</a></p>
+
+<h3>
+<a id="headings" class="anchor" href="#headings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Headings</h3>
+
+<p>Adding a heading to your webpage is simple. It follows the following syntax:</p>
+
+<div class="highlight highlight-source-c"><pre>body{
+    heading1 firstHeader = <span class="pl-s"><span class="pl-pds">"</span>Heading1!<span class="pl-pds">"</span></span>;
+    heading2 he2 = <span class="pl-s"><span class="pl-pds">"</span>Heading1!<span class="pl-pds">"</span></span>;
+    heading3 numberThree = <span class="pl-s"><span class="pl-pds">"</span>Heading1!<span class="pl-pds">"</span></span>;
+    heading4 a1337hax = <span class="pl-s"><span class="pl-pds">"</span>Heading1!<span class="pl-pds">"</span></span>;
+    heading5 a = <span class="pl-s"><span class="pl-pds">"</span>Heading1!<span class="pl-pds">"</span></span>;
+    heading6 yep = <span class="pl-s"><span class="pl-pds">"</span>Heading1!<span class="pl-pds">"</span></span>;
+};</pre></div>
+
+<p>A heading declaration must start with the type of heading (<em>heading1</em> to <em>heading6</em>), followed by an identifier (a letter followed by letters or numbers) and assigning a text value using the equal sign.</p>
+
+<h5>
+<a id="heading-style" class="anchor" href="#heading-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Heading Style</h5>
+
+<p>You can set certain attributes of a heading. These are its color, alignment, font, font-size, and if it is bold, underlined or italic. </p>
+
+<div class="highlight highlight-source-c"><pre>body{
+    heading1 h1 = <span class="pl-s"><span class="pl-pds">"</span>Test<span class="pl-pds">"</span></span>;
+    <span class="pl-c1">style</span>(h1){
+        color = WHITE;
+        alignment = CENTER;
+        font = COURIER;
+        font-size = <span class="pl-c1">12</span>;
+        isBold = <span class="pl-c1">FALSE</span>;     <span class="pl-c">//Possible values: TRUE or FALSE</span>
+        isItalic = <span class="pl-c1">TRUE</span>;
+        isUnderline = <span class="pl-c1">TRUE</span>;
+    };
+}:</pre></div>
+
+<p>Note: All attributes <strong><em>must</em></strong> be present in the heading style definition (in other words, omitting the color attribute will result in an error).</p>
+
+<h3>
+<a id="paragraphs" class="anchor" href="#paragraphs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Paragraphs</h3>
+
+<p>To add a paragraph to your webpage, it follows the following pattern:</p>
+
+<div class="highlight highlight-source-c"><pre>body{
+    paragraph firstPar = <span class="pl-s"><span class="pl-pds">"</span>This is the content of the paragraph<span class="pl-pds">"</span></span>;
+};</pre></div>
+
+<p>Paragraphs follow a syntax similar to the headings previously mentioned. To create a paragraph, the keyword <em>paragraph</em> must be present. After the keyword, an identifier is used and assigned a text value using the equal sign.</p>
+
+<h5>
+<a id="paragraph-style" class="anchor" href="#paragraph-style" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Paragraph Style</h5>
+
+<p>Paragraphs also have attributes that can be modified. These are the same as the heading attributes, and is written in a similar fashion:</p>
+
+<div class="highlight highlight-source-c"><pre>body{
+    paragraph p1 = <span class="pl-s"><span class="pl-pds">"</span>Testing with a paragraph!<span class="pl-pds">"</span></span>;
+    <span class="pl-c1">style</span>(p1){
+        color = BLUE;
+        alignment = CENTER;
+        font = COURIER;
+        font-size = <span class="pl-c1">18</span>;
+        isBold = <span class="pl-c1">TRUE</span>;     <span class="pl-c">//Possible values: TRUE or FALSE</span>
+        isItalic = <span class="pl-c1">FALSE</span>;
+        isUnderline = <span class="pl-c1">FALSE</span>;
+    };
+}:</pre></div>
+
+<h3>
+<a id="hyperlinks-links" class="anchor" href="#hyperlinks-links" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hyperlinks (Links)</h3>
+
+<p>Links have a different syntax to the elements seen so far. This time, a <code>link</code> variable is declared, and its attributes are set directly following it.</p>
+
+<div class="highlight highlight-source-c"><pre>body{
+    <span class="pl-c1">link</span> myLink;
+    <span class="pl-c1">linkAttr</span>(myLink){
+        destination = <span class="pl-s"><span class="pl-pds">"</span>http://www.google.com<span class="pl-pds">"</span></span>;
+        text = <span class="pl-s"><span class="pl-pds">"</span>Go to Google!<span class="pl-pds">"</span></span>;
+        alignment = CENTER;
+        font-size = <span class="pl-c1">144</span>;
+    };
+};</pre></div>
+
+<p>Links have four attributes to be defined:</p>
+
+<ul>
+<li>destination -&gt; the webpage to open when the link is clicked</li>
+<li>text -&gt; the text to show as the link that can be clicked</li>
+<li>aligment -&gt; alignment of the link on the webpage</li>
+<li>font-size -&gt; the font size of the text</li>
+</ul>
+
+<h3>
+<a id="images" class="anchor" href="#images" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Images</h3>
+
+<p>Images follow a similar pattern to how links are created. An <code>image</code> variable is declared, and its attributes definition immediately follows it.</p>
+
+<div class="highlight highlight-source-c"><pre>body{
+    image myImage;
+    <span class="pl-c1">imageAttr</span>(myImage){
+        source = <span class="pl-s"><span class="pl-pds">"</span>http://xiostorage.com/wp-content/uploads/2015/10/test.png<span class="pl-pds">"</span></span>;
+        height = <span class="pl-c1">200</span>;
+        width = <span class="pl-c1">200</span>;
+        destination = <span class="pl-s"><span class="pl-pds">"</span>None<span class="pl-pds">"</span></span>;
+    };
+};</pre></div>
+
+<p>Images have four attributes to be set:</p>
+
+<ul>
+<li>source -&gt; the source of the image (can be local [ex. <code>"images/test.png"</code>] or a link</li>
+<li>height -&gt; the desired height of the image</li>
+<li>width -&gt; the desired width of the image</li>
+<li>destination -&gt; distinguishes if the image is a link as well [ex. <code>destination = "http://www.uprm.edu";</code>] or if the image is not a link [ex. <code>destination = "None";</code>]</li>
+</ul>
+
+<h3>
+<a id="comments" class="anchor" href="#comments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Comments</h3>
+
+<p>Comments are ignored by the program itself, but helps increase the code readability. Any line that starts with two forward slashes [ // ] will be treated as a comment.</p>
+
+<p>Single Line Comments:</p>
+
+<div class="highlight highlight-source-c"><pre>...
+<span class="pl-c">//This is a comment</span>
+...</pre></div>
+
+<p>Multi-Line Comments:</p>
+
+<div class="highlight highlight-source-c"><pre>...
+<span class="pl-c">//This is</span>
+<span class="pl-c">//a multi-line</span>
+<span class="pl-c">//comment</span>
+...</pre></div>
         </section>
 
         <aside id="sidebar">
