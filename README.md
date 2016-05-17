@@ -29,7 +29,7 @@ This language handles the following HTML/CSS functionality:
  
 - Images
   - Image width and height
-  - Image link destination (when
+  - Image link destination
 
 Note: This project was developed using Python Lex-Yacc (PLY for short). Therefore, you must have Python 2.7 installed on your computer.
 
